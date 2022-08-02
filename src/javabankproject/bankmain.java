@@ -12,7 +12,7 @@ public class bankmain {
 		 bankfunction b =new bankfunction();
 		 b.connection();
 		 
-		 System.out.println("                   Welcome to Bank Application                      ");
+		 System.out.println("                      Welcome to Bank Application                           ");
 		 
 		// while (s!=true) {
 			 
