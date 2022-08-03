@@ -1,3 +1,4 @@
-javabankproject\database.class
 javabankproject\bankfunction.class
+javabankproject\database.class
+javabankproject\invalidException.class
 javabankproject\bankmain.class

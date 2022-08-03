@@ -22,7 +22,7 @@ public class database {
 			
 			
 			
-			con = DriverManager.getConnection(url,username,password);			
+			 con = DriverManager.getConnection(url,username,password);			
 			st = con.createStatement();
 		}
 		catch (Exception e) {
@@ -32,7 +32,7 @@ public class database {
 	}
 		
 		
-	public int create_account(String name, String type, int balance, int pin) 
+	public int create(String name, String type, int balance, int pin) 
 	{
 		int ac_no = 0;
 		
@@ -50,7 +50,7 @@ public class database {
 	}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 		return ac_no;
@@ -58,9 +58,9 @@ public class database {
 	}
 		
 		
-	public int 	check_balance(int ac_no , int pin) {
+	public int 	check(int ac_no , int pin) {
 		int balance = -1;
-		//String type;
+		
 		sql= " select balance from accounts where ac_no="+ac_no+" and pin="+pin;
 		
 		try {
@@ -68,14 +68,14 @@ public class database {
 			
 			while(rs.next()) {
 				balance =rs.getInt(1);
-				//System.out.println(balance);	
+				
 			
 				}
 		}
 			
 			
 		 catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -86,10 +86,10 @@ public class database {
 		
 	}
 	
-	public int withdraw(int ac_no,int pin,int amnt) {
+	public int withdrawal(int ac_no,int pin,int amnt) {
 		
 		int balance = 0;
-		//String type;
+	
 		sql= " select balance from accounts where ac_no="+ac_no+" and pin="+pin ;
 		
 		try {
@@ -99,10 +99,10 @@ public class database {
 				balance =rs.getInt(1);
 				if(balance<amnt) {
 					System.out.println("Insufficient balance");
-					//balance=-1;
+					
 				}
 				else {
-					//balance =rs.getInt(1);
+					
 					System.out.println("withdrawn amount:"+amnt);
 					balance = balance-amnt;
 					sql = " update accounts set balance="+balance+" where ac_no="+ac_no;
@@ -116,14 +116,14 @@ public class database {
 					}
 				}
 				
-				//System.out.println(balance);	
+			
 			
 				}
 		}
 			
 			
 		 catch (SQLException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -135,10 +135,10 @@ public class database {
 		
 	}
 	
-public int deposit(int ac_no,int pin,int amnt) {
+public int depo(int ac_no,int pin,int amnt) {
 		
 		int balance = 0;
-		//String type;
+	
 		sql= " select balance from accounts where ac_no="+ac_no+" and pin="+pin ;
 		
 		try {
@@ -147,7 +147,7 @@ public int deposit(int ac_no,int pin,int amnt) {
 			while(rs.next()) {
 				balance =rs.getInt(1);
 				
-					//balance =rs.getInt(1);
+					
 					System.out.println("deposit amount:"+amnt);
 					balance = balance+amnt;
 					sql = " update accounts set balance="+balance+" where ac_no="+ac_no;
@@ -163,14 +163,14 @@ public int deposit(int ac_no,int pin,int amnt) {
 					
 				
 				
-				//System.out.println(balance);	
+				
 			
 				}
 		}
 			
 			
 		 catch (SQLException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 		
